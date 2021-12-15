@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="photo"
+            type="com.shawakri.pixabayimagesearch.data.PixaBayPhoto" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/previewImage"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:contentDescription="@null"
+            android:loadImage="@{photo.imageURL}" />
+
+        <LinearLayout
+            android:id="@+id/usernameLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/previewImage">
+
+            <ImageView
+                android:id="@+id/usernameImage"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:contentDescription="@null"
+                android:loadUsernameImage="@{photo.userImageURL}"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/usernameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxWidth="@dimen/_120sdp"
+                android:text="@{photo.user}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tagsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameLL"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:maxWidth="@dimen/_125sdp"
+            android:maxLines="2"
+            android:text="@{photo.tags}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+    </RelativeLayout>
+
+</layout>
